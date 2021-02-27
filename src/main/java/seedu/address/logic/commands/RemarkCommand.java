@@ -19,6 +19,9 @@ public class RemarkCommand extends Command {
     //...
     public static final String MESSAGE_ARGUMENTS = "Index: %1$d, Remark: %2$s";
 
+    public static final String MESSAGE_ADD_REMARK_SUCCESS = "Added remark to Person: %1$s";
+    public static final String MESSAGE_DELETE_REMARK_SUCCESS = "Removed remark from Person: %1$s";
+
     public static final String COMMAND_WORD = "remark";
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Edits the remark of the person identified "
             + "by the index number used in the last person listing. "
@@ -30,9 +33,6 @@ public class RemarkCommand extends Command {
 
     private final Index index;
     private final Remark remark;
-
-    public static final String MESSAGE_ADD_REMARK_SUCCESS = "Added remark to Person: %1$s";
-    public static final String MESSAGE_DELETE_REMARK_SUCCESS = "Removed remark from Person: %1$s";
 
     /**
      * @param index of the person in the filtered person list to edit the remark
