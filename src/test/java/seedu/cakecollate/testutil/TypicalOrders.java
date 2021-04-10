@@ -37,7 +37,7 @@ public class TypicalOrders {
     public static final Order BENSON = new OrderBuilder().withName("Benson Meier")
             .withAddress("311, Clementi Ave 2, #02-25")
             .withEmail("johnd@example.com").withPhone("98765432")
-            .withOrderDescriptions("2 x Chocolate Cakes")
+            .withOrderDescriptions("Chocolate Cakes")
             .withTags("owesMoney", "friends")
             .withDeliveryDate("01-01-2022").withDeliveryStatus()
             .withRequest("More pineapples").build();
@@ -52,12 +52,12 @@ public class TypicalOrders {
             .withRequest("").build();
     public static final Order ELLE = new OrderBuilder().withName("Elle Meyer").withPhone("9482224")
             .withEmail("werner@example.com").withAddress("michegan ave")
-            .withOrderDescriptions("1 Raisins Cake Thing", "1 x Blackforest cake", "1 x Vanilla Cake")
+            .withOrderDescriptions("1 Raisins Cake Thing", "Blackforest cake", "Vanilla Cake")
             .withDeliveryDate("31/12/2022").withDeliveryStatus()
             .withRequest("").build();
     public static final Order FIONA = new OrderBuilder().withName("Fiona Kunz").withPhone("9482427")
             .withEmail("lydia@example.com").withAddress("little tokyo")
-            .withOrderDescriptions("2 x Vanilla cakes").withDeliveryDate("28-02-2022").withDeliveryStatus()
+            .withOrderDescriptions("Vanilla cakes").withDeliveryDate("28-02-2022").withDeliveryStatus()
             .withRequest("Replace vanilla essence with banana essence.").build();
     public static final Order GEORGE = new OrderBuilder().withName("George Best").withPhone("9482442")
             .withEmail("anna@example.com").withAddress("4th street")
