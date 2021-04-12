@@ -7,6 +7,8 @@ title: Developer Guide
 
 --------------------------------------------------------------------------------------------------------------------
 
+<div style="page-break-after: always;"></div>
+
 ## **1. Setting up, getting started**
 
 First, you will need to set up the project file in your local computer.<br>
@@ -26,6 +28,8 @@ Welcome to our Developer Guide! CakeCollate promises to be an efficient desktop 
 It is optimized for use via a Command Line Interface (CLI) while still having the benefits of a Graphical User Interface (GUI). If you're a small-time cake seller that can type fast, CakeCollate can get your order management tasks done faster than traditional GUI applications.
 
 --------------------------------------------------------------------------------------------------------------------
+
+<div style="page-break-after: always;"></div>
 
 ## **3. Design**
 
@@ -54,6 +58,8 @@ The rest of the App consists of four components.
 * [**`Model`**](#model-component): Holds the data of the App in memory.
 * [**`Storage`**](#storage-component): Reads data from, and writes data to, the hard disk.
 
+<div style="page-break-after: always;"></div>
+
 Each of the four components,
 
 * defines its *API* in an `interface` with the same name as the Component.
@@ -63,6 +69,8 @@ For example, the `Logic` component (see the class diagram given below) defines i
 
 ![Class Diagram of the Logic Component](images/LogicClassDiagram.png)
 
+<div style="page-break-after: always;"></div>
+
 **How the architecture components interact with each other**
 
 The *Sequence Diagram* below shows how the components interact with each other for the scenario where the user issues the command `delete 1`.
@@ -70,6 +78,8 @@ The *Sequence Diagram* below shows how the components interact with each other f
 <img src="images/ArchitectureSequenceDiagram.png" width="574" />
 
 The sections below give more details of each component.
+
+<div style="page-break-after: always;"></div>
 
 ### UI component
 
@@ -89,6 +99,8 @@ The `UI` component,
 * Executes user commands using the `Logic` component.
 * Listens for changes to `Model` data so that the UI can be updated with the modified data.
 
+<div style="page-break-after: always;"></div>
+
 ### Logic component
 
 ![Structure of the Logic Component](images/LogicClassDiagram.png)
@@ -102,12 +114,16 @@ The `UI` component,
 1. The result of the command execution is encapsulated as a `CommandResult` object which is passed back to the `Ui`.
 1. In addition, the `CommandResult` object can also instruct the `Ui` to perform certain actions, such as displaying help to the user.
 
+<div style="page-break-after: always;"></div>
+
 Given below is the Sequence Diagram for interactions within the `Logic` component for the `execute("delete 1")` API call.
 
 ![Interactions Inside the Logic Component for the `delete 1` Command](images/DeleteSequenceDiagram.png)
 
 <div markdown="span" class="alert alert-info">:information_source: **Note:** The lifeline for `DeleteCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
 </div>
+
+<div style="page-break-after: always;"></div>
 
 ### Model component
 
@@ -123,12 +139,14 @@ The `Model`:
 * exposes an unmodifiable `ObservableList<Order>` and `ObservableList<OrderItem>`that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list changes.
 * does not depend on any of the other three components.
 
+<div style="page-break-after: always;"></div>
 
 <div markdown="span" class="alert alert-info">:information_source: **Note:** An alternative (arguably, a more OOP) model is given below. It has a `Tag` list in the `CakeCollate`, which `Order` references. This allows `CakeCollate` to only require one `Tag` object per unique `Tag`, instead of each `Order` needing their own `Tag` object.<br>
 ![BetterModelClassDiagram](images/BetterModelClassDiagram.png)
 
 </div>
 
+<div style="page-break-after: always;"></div>
 
 ### Storage component
 
@@ -146,6 +164,9 @@ The `Storage` component,
 Classes used by multiple components are in the `seedu.cakecollate.commons` package.
 
 --------------------------------------------------------------------------------------------------------------------
+
+<div style="page-break-after: always;"></div>
+
 
 ## **4. Implementation**
 
@@ -182,10 +203,13 @@ Hence, based on this implementation, here is the sequence diagram containing the
 
 ![AddParserSequenceDiagram](images/AddParserSequenceDiagram.png)
 
+<div style="page-break-after: always;"></div>
+
 **Sequence diagram depicting the `AddCommand::execute` method:**
 
 ![AddSequenceDiagram](images/AddSequenceDiagram.png)
 
+<div style="page-break-after: always;"></div>
 
 ### Find feature
 
@@ -216,7 +240,12 @@ Given below is an example usage scenario and how the find mechanism behaves at e
 
 *Step 4.* The `FindCommand#execute` is called which updates the `FilteredList` that is currently being displayed.
 
+<div style="page-break-after: always;"></div>
+
 The following sequence diagram shows how this works:
+
+<div style="page-break-after: always;"></div>
+
 
 <div markdown="span" class="alert alert-info">:information_source: **Note:** The CakeCollateParser creates FindCommandParser and calls parse("n/Alex") while the LogicManager calls execute(). You can refer to the [Logic Component](#logic-component) for more details.
 
@@ -227,6 +256,8 @@ The following sequence diagram shows how this works:
 <div markdown="span" class="alert alert-info">:information_source: **Note:** The lifelines should end at the destroy marker (X) but due to a limitation of PlantUML, the lifelines reach the end of diagram.
 
 </div>
+
+<div style="page-break-after: always;"></div>
 
 #### Design considerations:
 
@@ -249,6 +280,8 @@ As CakeCollate is adapted from the AddressBook-Level3 project, the original find
     * Cons:
       * Creating many classes causes increased coupling.
       * Hard to implement `OR` searches.
+
+<div style="page-break-after: always;"></div>
 
 ### Remind feature
 
@@ -358,6 +391,8 @@ The following sequence diagram shows how this works:
     * Cons:
       * User might accidentally add a duplicate `OrderItem` with the same value for `Type` but different case.
 
+
+
 ### Delete Order Item Feature
 The `deleteItem` command enables users to delete predefined order items (also known as cake items or order descriptions). The user can choose to delete a single order item or multiple order items at the same time.
 
@@ -378,6 +413,9 @@ Given below is an example usage scenario and how the `deleteItem` mechanism work
 *Step 4.* `DeleteOrderItemCommand#execute` is called which updates the `UniqueOrderItemList` that is currently being displayed.
 
 The following sequence diagram shows how the `DeleteOrderItemCommandParser` works:
+
+<div style="page-break-after: always;"></div>
+
 
 <div markdown="span" class="alert alert-info">:information_source: **Note:** The CakeCollateParser creates DeleteOrderItemCommandParser and calls parse("1 2"). 
 
@@ -844,9 +882,9 @@ Prerequisites: Use the sample data provided on first start up. You can delete th
 
 1. Adding an order item to the order items table
     1. Prerequisites: none.
-    1.Test case: `addItem Chocolate Cake`<br>
+    1. Test case: `addItem Chocolate Cake`<br>
        Expected: A new Order Item with description "Chocolate Cake" is added to the order items table.
-    1.Test case: `addItem 123`<br>
+    1. Test case: `addItem 123`<br>
        Expected:  No order item is added. Error details shown in the status message.
        
 ### Deleting multiple order items
